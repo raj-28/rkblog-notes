@@ -125,7 +125,7 @@ export default function DropMenu() {
                     )}
                   >
                     <div className="flex flex-row">
-                      <CodeIcon className="mr-4 mt-0.5" /> Snippets
+                      <CodeIcon className="mr-4 mt-0.5" /> Notes
                     </div>
                   </a>
                 </Link>
