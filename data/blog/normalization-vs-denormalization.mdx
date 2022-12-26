@@ -1,0 +1,33 @@
+---
+title: What is normalization and denormalization? 
+date: '2022-12-26'
+tags: [beginners, normalization, denormalization, database, data, dataops,]
+draft: false
+summary: Learn about the concepts of normalization and denormalization in database design.
+
+---
+
+## What is normalization and denormalization?
+
+**Normalization** is the process of organizing a database in a way that reduces redundancy and dependency. It involves dividing a large, complex table into smaller, more specific tables and establishing relationships between them. The goal of normalization is to make it easier to update and maintain the database, and to reduce the risk of data inconsistencies and errors.
+
+### Examples of normalization (Pointers)
+
+- Imagine you have a table in a databasee that stores information about employees, including their name, address, and department. 
+- If you have multiple employees with the same department, you might decide to create a separate table for departments and establish a relationship between the two tables. 
+- This would allow you to store each department only once, rather than repeating it for every employee in that department. 
+- This is an example of normalization, because you are dividing the large, complex table into smaller, more specific tables and establishing relationships between them.
+
+**Denormalization**, on the other hand, is the process of adding redundant data back into a normalized database in order to improve performance. Denormalization can be useful when a database is used for reporting and analysis, because it allows for faster queries at the cost of increased storage and maintenance overhead. However, denormalization can also introduce data inconsistencies and make the database more difficult to maintain, so it should be used carefully.
+
+### Examples of denormalization (Pointers)
+
+- Imagine that you have a report that needs to show the total salary for each department. 
+- You could run a query that sums the salaries of all employees in each department, but this might be slow if the database is large. 
+- To speed up the query, you might decide to denormalize the database by adding a new column to the department table that stores the total salary for that department. 
+- This would allow you to run the report faster, because the total salary for each department is already stored in the department table. 
+- This also means that you will have to update the total salary column every time an employee's salary changes, which could be time-consuming. 
+- This is a perfect example of denormalization, because you are adding redundant data back into the database in order to improve performance.
+
+> Normalization is a design technique that is used to organize a database in a way that reduces redundancy and dependency, while denormalization is a technique that is used to improve performance by adding redundant data back into the database.
+
