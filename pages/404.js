@@ -1,6 +1,6 @@
-import Link from "@/components/Link";
-import { PageSEO } from "@/components/SEO";
-import siteMetadata from "@/data/siteMetadata";
+import Link from '@/components/Link';
+import { PageSEO } from '@/components/SEO';
+import siteMetadata from '@/data/siteMetadata';
 
 export default function FourZeroFour() {
   return (
@@ -31,7 +31,11 @@ export default function FourZeroFour() {
       </div>
       <div className="mt-16 grid place-items-center">
         <Link href="/">
-          <button aria-label="Scroll To Top" type="button" className="pushable">
+          <button
+            aria-label="Return to Homepage"
+            type="button"
+            className="pushable"
+          >
             <span className="shadow"></span>
             <span className="edgeblue"></span>
             <span className="frontblue">Return to Homepage</span>
