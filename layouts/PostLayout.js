@@ -1,12 +1,12 @@
-import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
-import { BlogSEO } from '@/components/SEO'
-import Image from '@/components/Image'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
+import Link from "@/components/Link";
+import PageTitle from "@/components/PageTitle";
+import SectionContainer from "@/components/SectionContainer";
+import { BlogSEO } from "@/components/SEO";
+import Image from "@/components/Image";
+import Tag from "@/components/Tag";
+import siteMetadata from "@/data/siteMetadata";
 // import Comments from '@/components/comments'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import ScrollTopAndComment from "@/components/ScrollTopAndComment";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -14,18 +14,31 @@ import {
   LinkedinShareButton,
   RedditShareButton,
   WhatsappShareButton,
-} from 'react-share'
-import { SocialIcon } from 'react-social-icons'
-import { HiOutlinePencil, HiOutlineClock, HiOutlineEye } from 'react-icons/hi'
-import { BsCalendarDate } from 'react-icons/bs'
+} from "react-share";
+import { SocialIcon } from "react-social-icons";
+import { HiOutlinePencil, HiOutlineClock, HiOutlineEye } from "react-icons/hi";
+import { BsCalendarDate } from "react-icons/bs";
 
-const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
+const editUrl = (fileName) =>
+  `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`;
 
-const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+const postDateTemplate = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
 
-export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
-  const { slug, fileName, date, title, images, tags, readingTime } = frontMatter
-  const postUrl = `${siteMetadata.siteUrl}/blog/${slug}`
+export default function PostLayout({
+  frontMatter,
+  authorDetails,
+  next,
+  prev,
+  children,
+}) {
+  const { slug, fileName, date, title, images, tags, readingTime } =
+    frontMatter;
+  const postUrl = `${siteMetadata.siteUrl}/blog/${slug}`;
   return (
     <SectionContainer>
       <BlogSEO
@@ -44,7 +57,10 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                     <time dateTime={date}>
                       <BsCalendarDate className="mr-1.5 -mt-1.5 inline h-4 w-4" />
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
+                      {new Date(date).toLocaleDateString(
+                        siteMetadata.locale,
+                        postDateTemplate
+                      )}
                     </time>
                   </dd>
                 </div>
@@ -52,7 +68,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
-              <div className="flex justify-center gap-5 py-4">
+              {/* <div className="flex justify-center gap-5 py-4">
                 <span className="flex items-center gap-1.5">
                   <HiOutlinePencil className="h-5 w-5" />
                   {readingTime.words} words
@@ -61,19 +77,41 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   <HiOutlineClock className="h-5 w-5" />
                   {readingTime.text}
                 </span>
+              </div> */}
+              <div className="px-8 py-8">
+                <div className="grid gap-8 items-start justify-center">
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                    <button className="relative px-7 py-4 bg-black rounded-lg leading-none flex items-center divide-x divide-gray-600">
+                      <span className="flex items-center space-x-5">
+                        <HiOutlinePencil className="h-5 w-5" />
+                        <span className="text-primary-400 group-hover:text-gray-100 transition duration-200">
+                          {readingTime.words} words{" "}
+                        </span>
+                      <HiOutlineClock className="h-5 w-5" />
+                      <span className="text-primary-400 group-hover:text-gray-100 transition duration-200">
+                        {readingTime.text}
+                      </span>
+                      </span>{" "}
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </header>
           <div
             className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
-            style={{ gridTemplateRows: 'auto 1fr' }}
+            style={{ gridTemplateRows: "auto 1fr" }}
           >
             <dl className="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
               <dt className="sr-only">Authors</dt>
               <dd>
                 <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                   {authorDetails.map((author) => (
-                    <li className="flex items-center space-x-2" key={author.name}>
+                    <li
+                      className="flex items-center space-x-2"
+                      key={author.name}
+                    >
                       {author.avatar && (
                         <Image
                           src={author.avatar}
@@ -87,7 +125,9 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
                         <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
+                        <dd className="text-gray-900 dark:text-gray-100">
+                          {author.name}
+                        </dd>
                         <dt className="sr-only">Twitter</dt>
                         <dd>
                           {author.twitter && (
@@ -95,7 +135,10 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                               href={author.twitter}
                               className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                             >
-                              {author.twitter.replace('https://twitter.com/', '@')}
+                              {author.twitter.replace(
+                                "https://twitter.com/",
+                                "@"
+                              )}
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -119,7 +162,9 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
+              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">
+                {children}
+              </div>
               <div className="grid place-items-center pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
                 <div className="flex items-center space-x-4">
                   <TwitterShareButton
@@ -148,7 +193,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     />
                   </FacebookShareButton>
                   <EmailShareButton
-                    body={'Check out this blog'}
+                    body={"Check out this blog"}
                     subject={title}
                     separator=" : "
                     url={postUrl}
@@ -162,7 +207,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     />
                   </EmailShareButton>
                   <LinkedinShareButton
-                    summary={'Check out this blog'}
+                    summary={"Check out this blog"}
                     title={title}
                     source={siteMetadata.siteUrl}
                     url={postUrl}
@@ -189,7 +234,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   </RedditShareButton>
                   <WhatsappShareButton
                     title={title}
-                    separator={' : '}
+                    separator={" : "}
                     url={postUrl}
                     className="flex items-center overflow-hidden rounded-full !bg-[#25D366] hover:scale-110"
                   >
@@ -267,5 +312,5 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
         </div>
       </article>
     </SectionContainer>
-  )
+  );
 }
