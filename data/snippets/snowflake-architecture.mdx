@@ -1,0 +1,21 @@
+---
+title: 'Snowflake Architecture (Notes)'
+date: '2022-12-27'
+tags: [Dataops, datakitchen, data, datawarehouse]
+draft: false
+summary: "Snowflake Architecture"
+images: []
+layout: PostSimple
+---
+
+## Snowflake Architecture
+
+- Snowflake is a data warehouse that was created in 2012 and is known for its unique architecture, which takes advantage of the resources available on cloud computing platforms (like AWS, GCP, and Azure). 
+- Snowflake's architecture has three main layers: cloud services, compute, and storage. 
+
+- Cloud services layer is responsible for authentication, access control, query optimization, and infrastructure and transaction management. It also includes a global result cache that stores query results, reducing the load on the compute layer. 
+- The compute layer is made up of virtual warehouses that contain nodes, which are equivalent to EC2 instances on AWS. The number and size of these warehouses can be adjusted to meet the needs of different workloads. 
+- The storage layer stores the data in tabular form, with each table split into micro-partitions that are stored on cloud storage. 
+
+Snowflake's design allows users to run highly performant and predictable data workloads, and its elastic data warehouse architecture allows for the easy scaling of compute and storage resources as needed.
+
