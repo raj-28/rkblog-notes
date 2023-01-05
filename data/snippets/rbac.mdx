@@ -1,0 +1,21 @@
+---
+title: "Role Based Access Control"
+date: "2023-01-05"
+tags: [Dataops, data, datawarehouse, Snowflake]
+draft: false
+summary: "Role Based Access Control (Notes)"
+images: []
+layout: PostSimple
+---
+
+# Iddentity, Access, Users and Roles
+
+The difference between identity and access is that one is about who you are and the other is about what you are allowed to do. If you can prove your identity, that's called being authenticated. If you can prove you have a right to access something, that's called being authorized.
+
+When we talk about authentication and authorization, these two steps can seem like they are happening at the same time, but they are actually separate processes. As the software has moved to the cloud, security technologies have become more sophisticated, and these two steps have become more separate.
+
+If users actually want to use the Snowflake, they need to get permission from the authorizer. The authorizer is the person who has the right to give permission to the user. But the authorizer does not care anything about the user because of something called role-based access control.
+
+## Role-based access control
+
+Role-based access control, or RBAC, is like a barrier between the user and the authorizer. Roles are assigned to users, and users can switch between the different roles so that when a user wants to carry out a task, the authorizer will either allow or deny the task based on the user's current role.
