@@ -9,3 +9,7 @@ layout: PostSimple
 ---
 
 Snowflake Query Lifecycle (Notes)
+
+## What happens when query get submitted to snowflake?
+
+When a query is submitted to Snowflake, it goes through several stages of processing. First, the query undergoes authentication and access control checks to ensure that the user has the necessary permissions to execute the query. Next, Snowflake checks the global result cache to see if the query has been previously executed and, if so, returns the cached result. If the query is not in the cache, it is passed to the query optimizer, which optimizes the query for efficient execution. The query is then handed off to the transaction management system, which checks for any ongoing transactions that may impact the query's execution. If necessary, the query may need to wait for other transactions to complete before it can be executed. Finally, the query is sent to the compute layer, where it is executed by the multi-cluster warehouse and the results are returned to the client.
