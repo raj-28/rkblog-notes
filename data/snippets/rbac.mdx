@@ -63,3 +63,16 @@ The SYSADMIN role is most often used to create databases and tables, as well as 
 - PUBLIC
 
 * Also you can create your own custom roles
+
+## Discretionary Access Control (DAC)
+
+DAC is a type of access control that allows users to control access to their own data. DAC is also known as self-control access control.
+
+- DAC means means "you create it, you own it."
+
+## Summary
+
+- The higher role can be DIRECTLY given to a USER and the USER will automatically (BOGO!) be awarded all the lower roles in the same org chart or family tree.
+- If a USER has a higher role, they will be able to impersonate all lower ROLES in the same linked tree, without being explicitly given those ROLES.
+- The higher role has custodial oversight of all objects OWNED by a linked, lower role.
+- Each USER has a default role they are assigned. This is the ROLE they are set to each time they log in. It doesn't do much more than that, so it is convenience, only and does not affect the current role a user is using.
