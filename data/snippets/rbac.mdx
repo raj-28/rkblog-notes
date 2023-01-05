@@ -19,3 +19,47 @@ If users actually want to use the Snowflake, they need to get permission from th
 ## Role-based access control
 
 Role-based access control, or RBAC, is like a barrier between the user and the authorizer. Roles are assigned to users, and users can switch between the different roles so that when a user wants to carry out a task, the authorizer will either allow or deny the task based on the user's current role.
+
+## Snowflake RBAC
+
+One of the most powerful feature of snowflake is that users can switch between roles without needing to log in and out of the snowflake account. This is very useful for users who have different roles in different projects. Changing roles is as easy as picking it from a menu.
+
+## Snowflake Roles
+
+As you change roles, you are likely to notice that you gain and lose access to some types of information. The role with the most access and power is the account admin role or ACCOUNTADMIN role.
+
+> Trial account user, you are automatically assigned the ACCOUNTADMIN role.
+
+## RBAC inheritance
+
+RBAC inheritance means you will automatically get all the predefined Snowflakes roles and provilages. For example, if you are assigned the ACCOUNTADMIN role, you will automatically get the SECURITYADMIN role.
+
+> Let's say if users' companies decide to start using Snowflake, that particular user will likely be restricted to the SYSADMIN role. Different people within that user's company will be assigned the SECURITYADMIN and USERADMIN roles. Perhaps a few users will have the ACCOUNTADMIN role.
+
+## Roles and privileges
+
+You may want to think of roles as hats, where ACCOUNTADMIN Is the hat with the highest privilages. The SECURITY and USERADMINS are hats for gatekeeping and SYSADMIN hats for creating.
+
+The SYSADMIN role is most often used to create databases and tables, as well as warehouses. So whenever the snowflake trial is created, even though you were given all the roles, your default role is set to SYSADMIN.
+
+## Identity
+
+- User
+- Once per login
+- Authentication
+
+## Access
+
+- Role
+- Once per session
+- Authorization
+
+## Snowflakes acc. come with 5 predefined RBAC roles
+
+- ACCOUNTADMIN
+- SECURITYADMIN
+- USERADMIN
+- SYSADMIN
+- PUBLIC
+
+* Also you can create your own custom roles
